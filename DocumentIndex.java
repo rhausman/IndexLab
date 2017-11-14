@@ -25,72 +25,36 @@ public class DocumentIndex extends ArrayList<IndexEntry>
 	super(c);
     }
 
-    public void addWord (String word, int num){    //adds num to the IndexEntry for word by calling
+    public void addWord (String word, int num){    
+	 //NOTE: consider helper method to find loc or desired loc for alphabetical organizing 
+	    //adds num to the IndexEntry for word by calling
                                                     //that IndexEntry's add(num) method.
                                                     //if word is not yet in this DocumentIndex,
                                                     //the method first creates a new IndexEntry for word
                                                     //and inserts it into this list in alphabetical order
                                                     //ignoring the upper and lower case.
-       	/*
-	for(int i = 0; i<this.length(); i++)
-	{
-
-	}
-	*/
-
 	IndexEntry check = new IndexEntry(word);
 
 	if(indexOf(check) == -1)//if the list does not yet contain this word
 	{
-	//we need to insert in alphabetical location. We can compare charvals with arithmetic comparison
-	/*	int loc = 0;
-		for(int ch = 0; ch < word.length(); ch++)
+		ArrayList<String> sorted = new ArrayList<String>();
+		for(IndexEntry e : this)
 		{
-			for(loc = loc; loc<this.length(); loc++)
-			{
-				if(word.charAt(ch) > this.get(loc).charAt(ch)) loc++;
-			}	
-		}		
-	*/
-/*
- * for(int len = 1; len < word.length(); len++)
-	{
-		for(int now = 0; now< this.size(); now++)
-		{
-			//we are glancing at the element ahead, then insert behind
-			for(int s = 0; s<len; s++)
-			{
-				if(this.get(now).charAt(s) < word.charAt(s) )
-			}
-
+			sorted.add(e.getWord());
 		}
-		*/
+		sorted.add(word);//We now have a list of all the words
 
-	//	int first = 0;
-	//	int last = this.size();
-	//	int mid = last/2;
+		Collections.sort(sorted);//we sort the list
 
-	ArrayList<String> sorted = new ArrayList<String>();
-	for(IndexEntry e : this)
-	{
-		sorted.add(e.getWord());
-	}
-	sorted.add(word);//We now have a list of all the words
+		int loc = sorted.indexOf(word);//Find the location of the word we are adding
 
-	Collections.sort(sorted);//we sort the list
+		this.add(loc,check);//we add the corresponding IndexEntry to that location
 
-	int loc = sorted.indexOf(word);//Find the location of the word we are adding
-
-	this.add(loc,check);//we add the corresponding IndexEntry to that location
-
-		
+			
 
 	}
-//	else
-//	{
 		this.get(indexOf(check)).add(num); //whether or not the element existed before that if statement, it does now
 		//so we can add to it the num
-//	}
     }
     
     public void addAllWords(String str, int num){
