@@ -31,7 +31,20 @@ public class DocumentIndex extends ArrayList<IndexEntry>
                                                     //the method first creates a new IndexEntry for word
                                                     //and inserts it into this list in alphabetical order
                                                     //ignoring the upper and lower case.
-        
+       	/*
+	for(int i = 0; i<this.length(); i++)
+	{
+
+	}
+	*/
+
+	IndexEntry check = new IndexEntry(word);
+
+	if(this.contains(check))
+	{
+		int s = 0;
+		for(s = 0; s<
+	}
     }
     
     public void allAddWords(String str, int num){
