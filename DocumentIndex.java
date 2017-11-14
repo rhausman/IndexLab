@@ -52,7 +52,8 @@ public class DocumentIndex extends ArrayList<IndexEntry>
 			}	
 		}		
 	*/
-	for(int len = 1; len < word.length(); len++)
+/*
+ * for(int len = 1; len < word.length(); len++)
 	{
 		for(int now = 0; now< this.size(); now++)
 		{
@@ -63,6 +64,16 @@ public class DocumentIndex extends ArrayList<IndexEntry>
 			}
 
 		}
+		*/
+
+		int first = 0;
+		int last = this.size();
+		int mid = last/2;
+
+	
+
+		
+
 	}
 	 else //if it is already in the list
 	{
