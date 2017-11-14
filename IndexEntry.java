@@ -20,6 +20,7 @@ public String getWord(){return word;}
 public String toString()
 {
 	String temp = "";
+	temp += word + " ";
 	for(Integer c:numsList)
 	{
 		temp += c;
