@@ -10,7 +10,7 @@ class IndexEntry{
 
 public int add(int n)
 {
-	if(!numsList.contains(n){numsList.add(n);}
+	if(!numsList.contains(n)){numsList.add(n);}
 }
 
 public String getWord(){return word;} 
@@ -23,7 +23,7 @@ public String toString()
 		temp += c;
 		temp += ", ";
 	}
-	temp = temp.substring(0,temp.length-2);
+	temp = temp.substring(0,temp.length()-2);
 	return temp;
 }
 
