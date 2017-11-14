@@ -5,7 +5,7 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-import java.util.ArrayList;
+import java.util.*;
 public class DocumentIndex extends ArrayList<IndexEntry>
 {
     // instance variables - replace the example below with your own
@@ -40,10 +40,33 @@ public class DocumentIndex extends ArrayList<IndexEntry>
 
 	IndexEntry check = new IndexEntry(word);
 
-	if(this.contains(check))
+	if(indexOf(check) == -1)//if the list does not yet contain this word
 	{
-		int s = 0;
-		for(s = 0; s<
+	//we need to insert in alphabetical location. We can compare charvals with arithmetic comparison
+	/*	int loc = 0;
+		for(int ch = 0; ch < word.length(); ch++)
+		{
+			for(loc = loc; loc<this.length(); loc++)
+			{
+				if(word.charAt(ch) > this.get(loc).charAt(ch)) loc++;
+			}	
+		}		
+	*/
+	for(int len = 1; len < word.length(); len++)
+	{
+		for(int now = 0; now< this.size(); now++)
+		{
+			//we are glancing at the element ahead, then insert behind
+			for(int s = 0; s<len; s++)
+			{
+				if(this.get(now).charAt(s) < word.charAt(s) )
+			}
+
+		}
+	}
+	 else //if it is already in the list
+	{
+		this.get(indexOf(check)).add(num);
 	}
     }
     
