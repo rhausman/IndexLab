@@ -44,11 +44,22 @@
 		}
 		*/
 
-		int first = 0;
-		int last = this.size();
-		int mid = last/2;
+	//	int first = 0;
+	//	int last = this.size();
+	//	int mid = last/2;
 
-	
+	ArrayList<String> sorted = new ArrayList<String>();
+	for(IndexEntry e : this)
+	{
+		sorted.add(e.getWord);
+	}
+	sorted.add(word);
+
+	Collections.sort(sorted);
+
+	int loc = sorted.instanceOf(word);
+
+	this.add(check,loc);
 
 		
 
