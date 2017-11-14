@@ -86,15 +86,21 @@ public class DocumentIndex extends ArrayList<IndexEntry>
 		
 
 	}
-	 else //if it is already in the list
-	{
-		this.get(indexOf(check)).add(num);
-	}
+//	else
+//	{
+		this.get(indexOf(check)).add(num); //whether or not the element existed before that if statement, it does now
+		//so we can add to it the num
+//	}
     }
     
-    public void allAddWords(String str, int num){
-       String[] punctuation = {"." , "," , } 
-        
+    public void addAllWords(String str, int num){
+       //String[] punctuation = {"." , "," };
+       //for(int p = 0; p< punctuation.length; p++) str = str.replaceAll(punctuation[p],""); //removes all punctuation listed
+	Character space = new Character(' ');
+       String[] wordlist = str.split("\\W+");//will skip any nonword regex that appears at least once
+       for(String w : wordlist) {
+	if(!( w.length() == 0 || space.equals(w.charAt(0)) ) ) this.addWord(w,num); //if the length is not 0 and the first char is not whitespace, add it!
+       } //end of foreach loop
     }
     
     private int foundOrInserted(String word){
