@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 class IndexEntry{
 	private String word;
 	private ArrayList<Integer> numsList;
@@ -8,9 +9,10 @@ class IndexEntry{
 			numsList = new ArrayList<Integer>();
 		}
 
-public int add(int n)
+public void add(int n)
 {
 	if(!numsList.contains(n)){numsList.add(n);}
+
 }
 
 public String getWord(){return word;} 
