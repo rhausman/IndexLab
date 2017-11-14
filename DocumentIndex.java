@@ -1,25 +1,47 @@
 
- public class DocumentIndex extends ArrayList<IndexEntry>
+/**
+ * Write a description of class DocumentIndex here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+import java.util.*;
+public class DocumentIndex extends ArrayList<IndexEntry>
 {
     // instance variables - replace the example below with your own
-@ -40,10 +40,33 @@ public class DocumentIndex extends ArrayList<IndexEntry>
+    private int x;
 
-	IndexEntry check = new IndexEntry(word);  
-	//Some notes on our constructors and how we should call them:
-												//dont set this, call constructor from the other class
-												// public DocumentIndex(){
-													//super();
-													//}
-													//for the initial capacity one:
-													//public DocumentIndex(int initialCapacity){
-													//	super(initialCapacity);
-												//	}
+    /**
+     * Constructor for objects of class DocumentIndex
+     */
+    public DocumentIndex()
+    {
+        //ArrayList<String>name = new ArrayList<String>();
+	super();
+    }
 
-	if(this.contains(check))
+    public DocumentIndex(int c)
+    {
+	super(c);
+    }
+
+    public void addWord (String word, int num){    //adds num to the IndexEntry for word by calling
+                                                    //that IndexEntry's add(num) method.
+                                                    //if word is not yet in this DocumentIndex,
+                                                    //the method first creates a new IndexEntry for word
+                                                    //and inserts it into this list in alphabetical order
+                                                    //ignoring the upper and lower case.
+       	/*
+	for(int i = 0; i<this.length(); i++)
+	{
+
+	}
+	*/
+
+	IndexEntry check = new IndexEntry(word);
+
 	if(indexOf(check) == -1)//if the list does not yet contain this word
 	{
-		int s = 0;
-		for(s = 0; s<
 	//we need to insert in alphabetical location. We can compare charvals with arithmetic comparison
 	/*	int loc = 0;
 		for(int ch = 0; ch < word.length(); ch++)
@@ -51,15 +73,15 @@
 	ArrayList<String> sorted = new ArrayList<String>();
 	for(IndexEntry e : this)
 	{
-		sorted.add(e.getWord);
+		sorted.add(e.getWord());
 	}
-	sorted.add(word);
+	sorted.add(word);//We now have a list of all the words
 
-	Collections.sort(sorted);
+	Collections.sort(sorted);//we sort the list
 
-	int loc = sorted.instanceOf(word);
+	int loc = sorted.indexOf(word);//Find the location of the word we are adding
 
-	this.add(check,loc);
+	this.add(loc,check);//we add the corresponding IndexEntry to that location
 
 		
 
@@ -70,14 +92,12 @@
 	}
     }
     
-    //Here is what our addAllWords class should look like (pretty much word for word)
+    public void allAddWords(String str, int num){
+       String[] punctuation = {"." , "," , } 
+        
+    }
     
-    //public void addAllWords(String str, int num){
-    //	String[]words = str.split("\\W+");
-    //	for(String word: words){
-	//		if(word.length>0){
-	//			addWord(word, num);
-	//		}
-	//	}
-    
-    
+    private int foundOrInserted(String word){
+    return 8;    
+    }
+}
