@@ -44,14 +44,16 @@ public class DocumentIndex extends ArrayList<IndexEntry>
 
 		IndexEntry newEntry = new IndexEntry(word);
 
+
+
 	if( searchResult == -1)//if the list does not yet contain this word
 		{
 			sorted.add(word.toUpperCase());
 
 			Collections.sort(sorted);//we sort the list
 
-			int loc = sorted.indexOf(word);//Find the location of the word we are adding
-			System.out.println("INDEX AFTER ADDED: " + loc);
+			int loc = sorted.indexOf(word.toUpperCase());//Find the location of the word we are adding
+			//System.out.println("INDEX AFTER ADDED: " + loc);
 			this.add(loc, newEntry);//we add the corresponding IndexEntry to that location
 			
 			searchResult = loc;	
