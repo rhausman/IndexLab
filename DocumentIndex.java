@@ -34,24 +34,30 @@ public class DocumentIndex extends ArrayList<IndexEntry>
                                                     //and inserts it into this list in alphabetical order
                                                     //ignoring the upper and lower case.
 
-		ArrayList<String> sorted = new ArrayList<String>();
+		ArrayList<String> sorted = new ArrayList<String>(1); //start with one capacity then go from there
 		for(IndexEntry e : this)
 		{
 			sorted.add(e.getWord());
 		}
-	    if(sorted.indexOf(word.toUpperCase()) == -1)//if the list does not yet contain this word
-	{
-		
-		Collections.sort(sorted);//we sort the list
+		//this will be in alphabetical order
+		int searchResult = sorted.indexOf(word.toUpperCase()); //see if it is already in the word arraylist. -1 => none
 
-		int loc = sorted.indexOf(word);//Find the location of the word we are adding
+		IndexEntry newEntry = new IndexEntry(word);
 
-		this.add(loc,check);//we add the corresponding IndexEntry to that location
+	if( searchResult == -1)//if the list does not yet contain this word
+		{
+			sorted.add(word.toUpperCase());
 
+			Collections.sort(sorted);//we sort the list
+
+			int loc = sorted.indexOf(word);//Find the location of the word we are adding
+			System.out.println("INDEX AFTER ADDED: " + loc);
+			this.add(loc, newEntry);//we add the corresponding IndexEntry to that location
 			
+			searchResult = loc;	
+		}
 
-	}
-		this.get(indexOf(check)).add(num); //whether or not the element existed before that if statement, it does now
+		this.get(searchResult).add(num); //whether or not the element existed before that if statement, it does now
 		//so we can add to it the num
     }
     
