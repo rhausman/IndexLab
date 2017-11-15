@@ -1,6 +1,8 @@
 //going to call the word we are trying to insert "insertWord" for now
 
-
+for(int h = 0; h < insertWord.length(); h ++){
+    char insertWordLetter = insertWord.charAt(h);
+}
 
 for(int i = 0; i <arrayList.size()-1; i++){               //iterate through the arraylist
       String currentWord = arrayList.get(i);
