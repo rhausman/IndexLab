@@ -33,17 +33,15 @@ public class DocumentIndex extends ArrayList<IndexEntry>
                                                     //the method first creates a new IndexEntry for word
                                                     //and inserts it into this list in alphabetical order
                                                     //ignoring the upper and lower case.
-	IndexEntry check = new IndexEntry(word);
 
-	if(indexOf(check) == -1)//if the list does not yet contain this word
-	{
 		ArrayList<String> sorted = new ArrayList<String>();
 		for(IndexEntry e : this)
 		{
 			sorted.add(e.getWord());
 		}
-		sorted.add(word);//We now have a list of all the words
-
+	    if(sorted.indexOf(word.toUpperCase()) == -1)//if the list does not yet contain this word
+	{
+		
 		Collections.sort(sorted);//we sort the list
 
 		int loc = sorted.indexOf(word);//Find the location of the word we are adding
@@ -70,4 +68,6 @@ public class DocumentIndex extends ArrayList<IndexEntry>
     private int foundOrInserted(String word){
     return 8;    
     }
+
+
 }
