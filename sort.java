@@ -1,12 +1,21 @@
 //going to call the word we are trying to insert "insertWord" for now
 
+String word = "";
 
-
-boolean isSorted = true;
-for(int i = 0; i < list.size() - 1; i++) {
+//boolean isSorted = true;
+for(int i = 0; i < this.size(); i++) {
    // current String is > than the next one (if there are equal list is still sorted)
-   if(list.get(i).compareToIgnoreCase(list.get(i + 1)) > 0) { 
-       isSorted = false;
-       break;
+    int comparison = word.compareToIgnoreCase(this.getIndex(i) );
+   if(comparison == 0) { 
+       return i;
+       
    }
+   else if(comparison > 0){
+   		this.add(word, i);
+   		return i;
+   	}
+   	
+   
 }
+
+this.getIndex.word    
